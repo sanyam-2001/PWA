@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#253F5C" />
+
+    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" href="./images/192x192.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+    <title>Diagnostics App</title>
+</head>
+
+<body>
+    <!-- Header of the File -->
+    <header class="p-2">
+        <div class="left">
+            <div><img src="./images/192x192.png" alt="Logo" /></div>
+            <div>System Diagnostics</div>
+        </div>
+        <div class="right mr-2"><img src="./images/sample_dp.jpg" alt="Logo" /></div>
+    </header>
+
+    <div class="workspace">
+        <div class="dashboard">
+            <!-- Contains Different Navigation Features -->
+            <div class="token active my-3" id="Dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                <div class="text">Dashboard</div>
+            </div>
+
+            <div class="text my-3">Telemetry</div>
+            <hr />
+            <!-- Telemetry Section Starts Here -->
+            <div class="token" id="CPU">
+                <i class="fas fa-microchip"></i>
+                <div class="text">CPU</div>
+            </div>
+            <div class="token" id="Memory">
+                <i class="fas fa-memory"></i>
+                <div class="text">Memory</div>
+            </div>
+            <div class="token">
+                <i class="fas fa-database"></i>
+                <div class="text">Storage</div>
+            </div>
+            <div class="token">
+                <i class="fas fa-battery-full"></i>
+                <div class="text">Battery</div>
+            </div>
+            <div class="token">
+                <i class="fas fa-tv"></i>
+                <div class="text">Display</div>
+            </div>
+
+            <!-- Diagnostics Section Starts here -->
+            <div class="text my-3">Diagnostics</div>
+            <hr />
+            <div class="token">
+                <i class="fas fa-microchip"></i>
+                <div class="text">CPU</div>
+            </div>
+            <div class="token">
+                <i class="fas fa-battery-full"></i>
+                <div class="text">Battery</div>
+            </div>
+            <div class="token">
+                <i class="fas fa-database"></i>
+                <div class="text">Disk</div>
+            </div>
+            <div class="token">
+                <i class="fas fa-plug"></i>
+                <div class="text">Power</div>
+            </div>
+        </div>
+        <!-- Dashboard Ends Here -->
+        <div class="screens bg-light">
+            <!-- DASHBOARD SCREEN -->
+            <div class="dashboard-screen">
+                <div class="hero my-3 bg-primary p-4 rounded">
+                    <div class="display-4 OS">This PC</div>
+                    <div class="w-50">
+                        <div class="heroInfo">
+                            <h2>Arch Name :</h2>
+                            <h2 class="arch"></h2>
+                        </div>
+                        <div class="heroInfo">
+                            <h2>Model Name :</h2>
+                            <h2 class="model"></h2>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="tabloids row p-3">
+                    <div class="col-md-3 rounded p-2">
+                        <div class="icon"><i class="fas fa-microchip"></i></div>
+                        <div class="self">
+                            <div class="ram h4 text-center">8</div>
+                            <div class="description text-center">Memory(GB)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 rounded p-2">
+                        <div class="icon"><i class="fas fa-database"></i></div>
+                        <div class="self">
+                            <div class="storage h4 text-center">1024</div>
+                            <div class="description text-center">Storage(GB)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 rounded p-2 batteryCharge">
+                        <div class="icon"><i class="fas fa-battery-full"></i></div>
+                        <div class="self">
+                            <div class="battery h4 text-center">100</div>
+                            <div class="description text-center">Battery(%)</div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <canvas id="myChart" width="200" height="200"></canvas>
+
+            </div>
+            <!-- CPU SCREEN -->
+            <div class="cpu-screen">
+                <div class="hero my-3 bg-primary p-4 rounded">
+                    <i class="fas fa-microchip display-4 mx-4  text-light"></i>
+                    <div class="display-4 CPU-Name">CPU</div>
+                </div>
+                <div class="cpu-charts my-5">
+                    <canvas id="c1" width="200" height="200"></canvas>
+                    <canvas id="c2" width="200" height="200"></canvas>
+                    <canvas id="c3" width="200" height="200"></canvas>
+                    <canvas id="c4" width="200" height="200"></canvas>
+                    <canvas id="c5" width="200" height="200"></canvas>
+                    <canvas id="c6" width="200" height="200"></canvas>
+                    <canvas id="c7" width="200" height="200"></canvas>
+                    <canvas id="c8" width="200" height="200"></canvas>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./utils.js"></script>
+    <script src="./chart.js"></script>
+    <script src="./dashboard.js"></script>
+    <script src="./cpu.js"></script>
+    <script src="./app.js"></script>
+    <script src="./serviceWorker.js"></script>
+</body>
+
+</html>

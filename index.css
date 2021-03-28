@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+img{
+    border-radius: 50%;
+    height: 25px
+}
+.left, header{
+    display: flex;
+    align-items: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+}
+header{
+    padding: 6px;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.014), 0 6px 20px 0 rgba(0, 0, 0, 0.11);
+}
+.left{
+    width: 250px;
+    justify-content: space-between;
+    font-size: 20px;
+    letter-spacing:2px;
+}
+.workspace{
+    width:100%;
+    display: flex;
+}
+.dashboard{
+    width:20%;
+    height:100vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.082), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.screens{
+    width:80%;
+    height:100vh;
+    position:relative;
+    z-index: -1;
+}
+/* Dashboard */
+.token{
+    display:flex;
+    align-items:center;
+    cursor: pointer;
+    transition:all 0.5s ease;
+    padding: 12px;
+    
+}
+.token:hover{
+    background-color:rgb(226, 226, 226);
+    border-right: 4px solid grey;
+}
+.token:hover .text, .token:hover i{
+    color:black
+}
+i{
+    font-size:20px;
+    margin-left: 10%;
+}
+.text, i{
+    color:grey;
+}
+.text{
+    margin-left: 10%;
+    font-family: 'Roboto Mono', monospace;
+}
+.active{
+    border-right: 4px solid blue;
+    border-radius: 1px;
+    background-color:aliceblue;
+}
+.active .text, .active i{
+    color:blue;
+}
+/* Screens */
+.screens div{
+    width:95%;
+    margin: auto;
+}
+.hero{
+    display:flex;
+    color: white
+}
+.heroInfo{
+    display:flex;
+    justify-content:space-between;
+    
+}
+.arch, .model{
+    color:white;
+}
+h2{
+    font-size:18px;
+    font-weight: 400
+}
+.col-md-3{
+    background-color: white;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.24);
+    display:flex
+
+}
+.icon i{
+    font-size:50px;
+    color:black
+}
+#myChart{
+    max-height: 400px;
+
+    height: 300px;
+    width: 300px
+}
+#c1, #c2, #c3, #c4, #c5, #c6,#c7, #c8 {
+    max-height: 200px;
+    max-width: 250px;
+
+    height: 300px;
+    width: 300px
+}
+
+.cpu-charts{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.CPU-Name{
+    font-size:30px;
+
+}
+.OS{
+    width: 50%;
+}
+@media only screen and (max-width: 768px){
+	*{
+        overflow: visible;
+    }
+    .dashboard{
+        width: 40%;
+        background-color: black;
+        z-index: 2;
+        position: fixed;
+    }
+    
+    .screens{
+        width: 60%;
+        overflow: visible;
+        margin-left: 40%;
+    }
+    .display-4, h2{
+        font-size: 26px;
+    }
+    .OS{
+        width: 100%;
+    }
+    .heroInfo{
+        display: none;
+    }
+    .col-md-3{
+        margin-bottom: 5%;
+    }
+}
